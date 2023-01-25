@@ -20,14 +20,14 @@ def connectToDB():
             database="etl",
             user="postgres",
             password="postgres",
-            #host="localhost",
-            host="host.docker.internal",
+            host="localhost",
+            #host="host.docker.internal",
             port="5432",
         )
         conn.autocommit = True
         cur = conn.cursor()
-        #engine = create_engine("postgresql+psycopg2://postgres:%s@localhost:5432/etl" % urlquote("postgres"))
-        engine = create_engine("postgresql+psycopg2://postgres:%s@host.docker.internal:5432/etl" % urlquote("postgres"))
+        engine = create_engine("postgresql+psycopg2://postgres:%s@localhost:5432/etl" % urlquote("postgres"))
+        #engine = create_engine("postgresql+psycopg2://postgres:%s@host.docker.internal:5432/etl" % urlquote("postgres"))
         return cur, engine, conn
     except Exception as e:
         print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
