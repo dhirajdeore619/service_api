@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 def connectToDB():
     try:
         conn = psycopg2.connect(
-            database="etl",
+            database="services_api",
             user="postgres",
             password="postgres",
             #host="localhost",
