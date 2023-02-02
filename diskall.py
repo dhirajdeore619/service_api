@@ -17,19 +17,19 @@ warnings.filterwarnings("ignore")
 def connectToDB():
     try:
         conn = psycopg2.connect(
-            database="services_api",
+            database="services",
             user="postgres",
             password="postgres",
             #host="localhost",
             #host="host.docker.internal",
-            host="database-1.cnahwufv56cn.us-east-1.rds.amazonaws.com",
+            host="database-1.chxe1rfe1esv.us-east-1.rds.amazonaws.com",
             port="5432",
         )
         conn.autocommit = True
         cur = conn.cursor()
         #engine = create_engine("postgresql+psycopg2://postgres:%s@localhost:5432/etl" % urlquote("postgres"))
         #engine = create_engine("postgresql+psycopg2://postgres:%s@host.docker.internal:5432/etl" % urlquote("postgres"))
-        engine = create_engine("postgresql+psycopg2://postgres:%s@database-1.cnahwufv56cn.us-east-1.rds.amazonaws.com:5432/services_api" % urlquote("postgres"))
+        engine = create_engine("postgresql+psycopg2://postgres:%s@database-1.chxe1rfe1esv.us-east-1.rds.amazonaws.com:5432/services" % urlquote("postgres"))
         return cur, engine, conn
     except Exception as e:
         print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
